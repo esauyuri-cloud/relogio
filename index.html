@@ -26,9 +26,9 @@ a.btn:focus-visible{outline:3px solid var(--warn);outline-offset:3px}
   <small>O Timbre do Mago Branco</small>
   <div class="fone" id="fone">Seu fone</div>
   <div class="ring" id="ring"><div><div class="clock" id="clock">--:--</div><span id="ate" class="sub"></span></div></div>
-  <p id="msg">Abra este endereço pelo QR code que aparece na tenda quando você retira o fone.</p>
+  <p id="msg">Abra este endereço pelo QR code que o Time mostra quando você retira o fone.</p>
   <a class="btn" href="https://tally.so/r/M1eYEE" target="_blank" rel="noopener">Comprar mais tempo</a>
-  <p style="font-size:14px">Depois de comprar mais tempo, peça na tenda o QR code novo para atualizar o relógio.</p>
+  <p style="font-size:14px">Depois de comprar mais tempo, peça ao Time o QR code novo para atualizar o relógio.</p>
 </div>
 <script>
 (function(){
@@ -41,7 +41,7 @@ const c=CORES[i];
 $("#fone").innerHTML=c?`<i style="--tag:${c[1]}"></i>Fone ${i} · ${c[0]}`:`Fone ${i}`;
 const d=new Date(fim);$("#ate").textContent="até "+String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0");
 function tick(){const r=fim-Date.now();const w=$("#w");
-  if(r<=0){$("#clock").textContent="0:00";w.className="wrap over";$("#msg").textContent="Seu tempo acabou. Devolva o fone na tenda ou compre mais tempo.";$("#ring").style.setProperty("--p",0);return}
+  if(r<=0){$("#clock").textContent="0:00";w.className="wrap over";$("#msg").textContent="Seu tempo acabou. Devolva o fone para o Time ou compre mais tempo.";$("#ring").style.setProperty("--p",0);return}
   const s=Math.ceil(r/1000),h=Math.floor(s/3600),mm=Math.floor(s%3600/60),ss=s%60;
   $("#clock").textContent=(h?h+":"+String(mm).padStart(2,"0"):mm)+":"+String(ss).padStart(2,"0");
   w.className=r<=3*60000?"wrap warn":"wrap";

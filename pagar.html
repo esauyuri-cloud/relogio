@@ -26,14 +26,14 @@ a.btn:focus-visible,a.voltar:focus-visible{outline:3px solid var(--warn);outline
   <p id="sub"></p>
   <a class="btn" id="pagar" href="https://tally.so/r/M1eYEE" rel="noopener">Pagar no Mercado Pago</a>
   <a class="voltar" id="voltar" href="https://tally.so/r/M1eYEE">Voltar e escolher outro tempo</a>
-  <p style="font-size:14px">Horário aproximado: o tempo começa quando você retira o fone na tenda, depois do pagamento. Mostre o comprovante na tenda.</p>
+  <p style="font-size:14px">Horário aproximado: o tempo começa quando você retira o fone com o Time, depois do pagamento. Mostre o comprovante para o Time.</p>
 </div>
 <script>
 (function(){
 const q=new URLSearchParams(location.search), $=s=>document.getElementById(s);
 const pg=q.get("pg")||"", min=parseInt(q.get("min")||"",10);
 const ok=/^https:\/\/(mpago\.la|link\.mercadopago\.com\.br|www\.mercadopago\.com\.br)\//.test(pg);
-if(!ok){$("tit").textContent="Não encontramos o link de pagamento";$("hora").hidden=true;$("sub").className="err";$("sub").textContent="Volte e envie o formulário de novo, ou peça ajuda na tenda.";$("pagar").textContent="Voltar ao formulário";return}
+if(!ok){$("tit").textContent="Não encontramos o link de pagamento";$("hora").hidden=true;$("sub").className="err";$("sub").textContent="Volte e envie o formulário de novo, ou peça ajuda ao Time.";$("pagar").textContent="Voltar ao formulário";return}
 $("pagar").href=pg;
 function hhmm(d){return String(d.getHours()).padStart(2,"0")+":"+String(d.getMinutes()).padStart(2,"0")}
 function upd(){
