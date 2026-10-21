@@ -14,7 +14,8 @@ h1{font-family:var(--f-display);font-weight:800;font-size:26px;margin:0;text-wra
 .hora{font-family:var(--f-mono);font-weight:700;font-size:clamp(48px,16vw,76px);line-height:1;font-variant-numeric:tabular-nums}
 p{margin:0;color:var(--muted);line-height:1.45;max-width:34ch}
 a.btn{display:block;width:100%;padding:16px 20px;border-radius:12px;background:var(--ink);color:var(--bg);font-weight:700;font-size:18px;text-decoration:none}
-a.btn:focus-visible{outline:3px solid var(--warn);outline-offset:3px}
+a.voltar{display:block;width:100%;padding:14px 20px;border-radius:12px;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700}
+a.btn:focus-visible,a.voltar:focus-visible{outline:3px solid var(--warn);outline-offset:3px}
 .err{color:var(--warn)}
 </style></head><body>
 <div class="wrap">
@@ -24,6 +25,7 @@ a.btn:focus-visible{outline:3px solid var(--warn);outline-offset:3px}
   <div class="hora" id="hora">--:--</div>
   <p id="sub"></p>
   <a class="btn" id="pagar" href="https://tally.so/r/M1eYEE" rel="noopener">Pagar no Mercado Pago</a>
+  <a class="voltar" id="voltar" href="https://tally.so/r/M1eYEE">Voltar e escolher outro tempo</a>
   <p style="font-size:14px">Horário aproximado: o tempo começa quando você retira o fone na tenda, depois do pagamento. Mostre o comprovante na tenda.</p>
 </div>
 <script>
@@ -40,6 +42,7 @@ function upd(){
   $("hora").textContent=hhmm(fim);
   $("sub").textContent=(min>=60?(min/60).toString().replace(".",",").replace(",5","h30").replace(/^1$/,"1 hora")+(min%60?"":(min>60?" horas":"")):min+" minutos")+" a partir de agora, contando uns minutos para pagar e retirar o fone.";
 }
+$("voltar").addEventListener("click",e=>{if(history.length>1&&document.referrer.indexOf("tally.so")>-1){e.preventDefault();history.back()}});
 upd();setInterval(upd,15000);
 })();
 </script>
